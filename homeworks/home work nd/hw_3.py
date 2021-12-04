@@ -190,13 +190,11 @@
 # [32, 729, 16384]
 
 # 24
-# list_A = [2, 3, 4]
-# list_B = [5, 6, 7]
 # lst_to_sort = [5, 18, 1, 24, 33, 15, 13, 55]
 #
 # import functools
 #
-# fo = lambda a, b: a + b
+# foo = lambda a, b: a + b
 # foo = functools.reduce(fo, lst_to_sort)
 # print(foo)
 # 164
