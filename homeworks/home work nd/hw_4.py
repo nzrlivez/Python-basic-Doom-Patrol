@@ -18,14 +18,32 @@
 #
 # School_bus = Bus(50, 60, 70)
 
+
+# 2.2
+# class Bus(Vehicle):
+#     def __init__(self, max_speed, mileage, capacity):
+#         super().__init__(max_speed, mileage)
+#         self.capacity = capacity
+#
+#     def seating_capacity(self):
+#         print(f'Bus contains {self.capacity} seats')
+#
+#
+# bus = Bus(50, 60, 70)
+# bus.seating_capacity()
+
+
+
 # 3
 # print(type(School_bus))
 
 # 4
 # print(instance(school_bus, Vehicle))
 
+# 5. Create a new class School with get_school_id and number_of_students instance attributes
+
 # 5
-# class School bus :
+# class School :
 #     def __int__(self, get_school_id, numer_of_student) :
 #         self.get_school_id = get_school_id
 #         self.numer_of_student = numer_of_student
