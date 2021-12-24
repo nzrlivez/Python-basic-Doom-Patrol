@@ -123,10 +123,10 @@ class Tomato(Vegetables):
 
 
 class TomatoBush:
-    def __init__(self, number_of_tomatos):
+    def __init__(self, number_of_tomatoes, number_of_pests):
+        self.all_tomatoes = [Tomato('Cherry', index) for index in range(number_of_tomatoes)]
         self.all_pests = [Pests(index, 'Veggies', self.all_tomatoes)
-                          for index in range(number_of_pests)]
-        self.all_tomatoes = [Tomato('Cherry', index) for index in range(number_of_tomatos)]
+        for index in range(number_of_pests)]
 
     def grow_all(self):
         for tomato in self.all_tomatoes:
@@ -216,7 +216,7 @@ class Pests:
         self.plants_list = plants_list
 
     def eat_plants(self):
-        for plant in self.plants:
+        for plant in self.plants_list:
             if plant.is_ripe_for_pests():
                 plant.harvest()
 
@@ -230,9 +230,10 @@ print(tomato_bush.all_tomatoes)
 print(apple_tree.all_apples)
 
 gardener = Gardener("Homer", [apple_tree, tomato_bush],
-                            [apple_tree.all_pests, tomato_bush.all_pests]))
+                            [apple_tree.all_pests, tomato_bush.all_pests])
 for _ in range(3):
     gardener.take_care()
+
 gardener.harvest()
 print(tomato_bush.all_tomatoes)
 print(apple_tree.all_apples)
