@@ -55,7 +55,7 @@ def multiply(a, b, c, d, e):
 
 
 print(multiply(5, 5, 5, 5, 5))
-print(multiply(1, 2, 3, 4, 5))
+print(multiply(4, 4, 4, 4, 4))
 
 
 # 3.* logged
