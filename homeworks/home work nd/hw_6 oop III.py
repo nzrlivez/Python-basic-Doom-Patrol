@@ -39,7 +39,7 @@ class Predator(Animal, ABC):
         return self.types[0]
 
 
-class Herbivores(Animal):
+class Herbivores(Animal, ABC):
 
     def eat(self, forest):
         print(f"now {self, name}'s power: {self.current_power} points")
@@ -100,7 +100,7 @@ class Forest:
     def start_hunting(self):
         hunter = Forest.get_animal(self)
 
-        if isinstance(hunter, Herbivorous):
+        if isinstance(hunter, Herbivores):
             hunter.eat(50)
 
         # hunter is Predator, try to catch some victim
