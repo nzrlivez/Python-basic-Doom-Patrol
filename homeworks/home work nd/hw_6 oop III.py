@@ -1,11 +1,9 @@
 # HW 6
 
-import time
 import random
 import uuid
-import time
-
-from abc import ABC, abstractmethod
+from abc import abstractmethod, ABC
+from random import random, randint, choice
 
 
 class Animal(ABC):
@@ -13,7 +11,7 @@ class Animal(ABC):
 
     def __init__(self, power, speed, max_power):
         self.max_power = max_power
-        self.id = uuid.uuid4()
+        self.id = str(uuid.uuid4())
         self.power = power
         self.current_power = power
         self.speed = speed
@@ -41,9 +39,17 @@ class Predator(Animal, ABC):
         return self.types[0]
 
 
-class Herbivorous(Animal):
-    def get_name(self):
-        return self.types[1]
+class Herbivores(Animal):
+
+    def eat(self, forest):
+        print(f"now {self, name}'s power: {self.current_power} points")
+        if self.current_power > 0.5 * self.power:
+            self.current_power = self, max_power
+        else:
+            self.current_power += 0.5 * self.power
+        print(f'{self, name} eats...')
+        print(f"now {self, name}'s power: {self.current_power} points")
+        print('\n')
 
 
 class Forest:
@@ -123,11 +129,11 @@ def animal_generator(value):
     fox = Predator('fox', randint(25, 100), randint(25, 100))
     lynx = Predator('fox', randint(25, 100), randint(25, 100))
     snake = Predator('snake', randint(25, 100), randint(25, 100))
-    bunny = Herbivores('hare', randint(25, 100), randint(25, 100), randint(25, 100))
-    squirrel = Herbivores('squirrel', randint(25, 100), randint(25, 100), randint(25, 100))
-    mouse = Herbivores('mouse', randint(25, 100), randint(25, 100), randint(25, 100))
-    dear = Herbivores('moose', randint(25, 100), randint(25, 100), randint(25, 100))
-    boar = Herbivores('beaver', randint(25, 100), randint(25, 100), randint(25, 100))
+    bunny = Herbivores('bunny', randint(25, 100), randint(25, 100))
+    squirrel = Herbivores('squirrel', randint(25, 100), randint(25, 100))
+    mouse = Herbivores('mouse', randint(25, 100), randint(25, 100))
+    dear = Herbivores('moose', randint(25, 100), randint(25, 100))
+    boar = Herbivores('beaver', randint(25, 100), randint(25, 100))
     while value >= 0:
         value -= 1
         yield choice([wolf, bear, fox, lynx, bunny, squirrel, snake, mouse, dear, boar])
@@ -144,5 +150,4 @@ if __name__ == "__main__":
     while forest.any_predator_left():
         for animal in forest:
             animal.eat(forest=forest)
-
-
+            forest.number = 1
