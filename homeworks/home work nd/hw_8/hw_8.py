@@ -20,12 +20,12 @@ while True:
             with open('result.txt', 'a') as file:
                 file.write(str(f'{x} {i} {y} = {multiplication}' + '\n'))
         elif i == '/':
-            if y == 0:
+            if y != 0:
                 print('division by zero is not possible')
                 division = x / y
                 print(division)
                 with open('result.txt', 'a') as file:
-                    file.write(str(f'{x} {i} {y} = {division}' + '\n'))
+                    file.write(str(f'\n {x} {i} {y} = {division}'))
         else:
             print('incorrect operation sign')
 
