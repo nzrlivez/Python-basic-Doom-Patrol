@@ -29,7 +29,7 @@ class Person:
         return self.tag
 
 
-class fare:
+class Fare:
     def __init__(self, func):
         self.func = func
 
@@ -47,18 +47,15 @@ class fare:
         return self.func(person)
 
 
-@fare
+@Fare
 def bridge(person):
-    print(f'{person.name} passed the bridge with enough money. Current balance: {person.get_balance}. Tag: {person.get_tag}')
+    print(
+        f'{person.name} passed the bridge with enough money. Current balance: {person.get_balance}. Tag: {person.get_tag}')
 
 
 if __name__ == '__main__':
     nazar = Person(name='Nazar', money=45)
     bridge(nazar)
-
-
-
-
 
 # 2*
 
